@@ -29,25 +29,11 @@ module "eks" {
 
   //access entry for any specific user or role (jenkins controller instance)
   access_entries = {
-    # One access entry with a policy associated
-    example = {
-      principal_arn = "arn:aws:iam::527382020541:user/terraform"
-
-      policy_associations = {
-        example = {
-          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
-          access_scope = {
-            type = "cluster"
-          }
-        }
-      }
-    }
-  }
-root_user = {
+    root_user = {
       principal_arn = "arn:aws:iam::527382020541:root"
 
       policy_associations = {
-        example = {
+        admin_access = {
           policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
           access_scope = {
             type = "cluster"
