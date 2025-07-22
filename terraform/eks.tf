@@ -43,7 +43,19 @@ module "eks" {
       }
     }
   }
+root_user = {
+      principal_arn = "arn:aws:iam::527382020541:root"
 
+      policy_associations = {
+        example = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = {
+            type = "cluster"
+          }
+        }
+      }
+    }
+  }
 
   cluster_security_group_additional_rules = {
     access_for_bastion_jenkins_hosts = {
