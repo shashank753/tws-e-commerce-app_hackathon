@@ -32,7 +32,7 @@ module "eks" {
   access_entries = {
     # One access entry with a policy associated
     example = {
-      principal_arn = "arn:aws:iam::264765155677541:user/shashank"
+      principal_arn = "arn:aws:iam::264765155677:user/shashank"
 
       policy_associations = {
         example = {
